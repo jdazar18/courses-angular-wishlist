@@ -2,7 +2,7 @@ export class DestinoViaje {
 
     private selected: boolean = false;
 
-    constructor(public n: string, public u: string) {
+    constructor(public nombre: string, public url: string) {
 
     }
 
@@ -10,7 +10,7 @@ export class DestinoViaje {
         return this.selected;
     }
 
-    setSelected(){
-        this.selected = true;
+    setSelected(s : boolean){
+        this.selected = s;
     }
 }

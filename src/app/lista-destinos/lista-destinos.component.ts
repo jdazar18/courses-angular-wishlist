@@ -23,4 +23,9 @@ export class ListaDestinosComponent {
     
     return false;
   }
+
+  elegido(destino: DestinoViaje){
+    this.destinos.forEach(d => d.setSelected(false));
+    destino.setSelected(true);
+  }
 }

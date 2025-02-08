@@ -10,6 +10,7 @@
       <h3> {{ destino?.nombre }} </h3>
       <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt id, aspernatur nobis asperiores possimus dicta earum. Inventore sequi vero obcaecati libero. Vero eligendi quos libero dignissimos quae veniam a aperiam?
       </p>
-      <a href="#" class="btn-card">Read</a>			
+      <a href="#" class="btn-card" (click)="ir()">Ir!</a>	
+      <span [style.display]="destino?.isSelected() ? '' : 'none'">- PREFERIDO -</span>		
    </div>
 </div>
