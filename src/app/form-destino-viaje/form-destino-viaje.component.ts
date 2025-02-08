@@ -1,11 +1,12 @@
 import { Component, Output, EventEmitter } from '@angular/core';
-import { FormsModule, ReactiveFormsModule, FormGroup, FormBuilder } from '@angular/forms';
+import { CommonModule } from '@angular/common';
+import { FormsModule, ReactiveFormsModule, FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { DestinoViaje } from '../models/destino-viaje.model';
 
 
 @Component({
   selector: 'app-form-destino-viaje',
-  imports: [FormsModule, ReactiveFormsModule],
+  imports: [FormsModule, ReactiveFormsModule, CommonModule],
   templateUrl: './form-destino-viaje.component.html',
   styleUrl: './form-destino-viaje.component.css'
 })
@@ -17,7 +18,7 @@ export class FormDestinoViajeComponent {
   constructor(fb: FormBuilder){
     this.onItemAdded = new EventEmitter();
     this.fg = fb.group({
-      nombre: [''],
+      nombre: ['', Validators.required],
       url: ['']
     });
 
