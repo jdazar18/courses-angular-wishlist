@@ -1,10 +1,21 @@
 <div class="container">
-  <div class="row">
-    <h1>{{ title }}</h1>
+
+  <div class="page-header">
+    <div class="container">
+      <h1>Ruteo Simple</h1>
+      <div class="navLinks">
+        <a routerLink="/home" routerLinkActive="active" ariaCurrentWhenActive="page">Home</a>
+        <a routerLink="/destino" routerLinkActive="active" ariaCurrentWhenActive="page">Destinos</a>
+      </div>
+
+    </div>
+
   </div>
 
-  <app-lista-destinos></app-lista-destinos>
+  <div class="row">
+    <h2>{{ title }}</h2>
+  </div>
 
+  <router-outlet />
 </div>
 
-<router-outlet />
