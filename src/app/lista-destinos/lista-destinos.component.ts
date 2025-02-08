@@ -15,9 +15,17 @@ import { DestinosApiClient } from '../models/destinos-api-client.model';
 export class ListaDestinosComponent {
 
   @Output() onItemAdded: EventEmitter<DestinoViaje>;
+
+  updates : string[];
   
   constructor(public destinosApiClient: DestinosApiClient){
     this.onItemAdded = new EventEmitter();
+    this.updates = [];
+    this.destinosApiClient.subscribeOnChange((d: DestinoViaje) => {
+      if (d != null){
+        this.updates.push('Se ha elegido a ' + d.nombre);
+      }
+    });
   }
 
   agregado(d: DestinoViaje){
@@ -26,7 +34,6 @@ export class ListaDestinosComponent {
   }
 
   elegido(d: DestinoViaje){
-    this.destinosApiClient.getAll().forEach(d => d.setSelected(false));
-    d.setSelected(true);
+    this.destinosApiClient.elegir(d);
   }
 }
