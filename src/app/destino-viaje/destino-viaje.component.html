@@ -3,14 +3,26 @@
    <div	class="card-img">
       <img src="https://images.unsplash.com/photo-1738830656378-c8f96e01ec50?q=80&w=1501&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="">
       <span>
-         <h4>{{ destino?.nombre }}</h4>
+         <h4>{{ position }}</h4>
       </span>
    </div>
    <div	class="card-desc">
       <h3> {{ destino?.nombre }} </h3>
-      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt id, aspernatur nobis asperiores possimus dicta earum. Inventore sequi vero obcaecati libero. Vero eligendi quos libero dignissimos quae veniam a aperiam?
-      </p>
+      <p>Servicios</p>
+      <ul>
+         <li *ngFor="let s of destino?.servicios">
+            <span [ngSwitch]="s">
+               <i *ngSwitchCase="'Desayuno'" style="color:red">{{s}}</i>
+               <i *ngSwitchDefault>{{s}}</i>
+            </span>
+         
+         </li>
+      </ul>
       <a href="#" class="btn-card" (click)="ir()">Ir!</a>	
-      <span [style.display]="destino?.isSelected() ? '' : 'none'">- PREFERIDO -</span>		
+      <span *ngIf="destino?.isSelected()">
+         <span ngNonBindable>
+            {{1+1}}
+         </span>
+      </span>		
    </div>
 </div>

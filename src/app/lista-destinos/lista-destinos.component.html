@@ -26,8 +26,9 @@
     <hr	class="mb-5">
     <div class="row row-flex">
        <app-destino-viaje 
-         *ngFor="let destino of destinos" 
+         *ngFor="let destino of destinos; let i = index" 
          [destino]="destino"
+         [idx]="i+1"
          (clicked)="elegido($event)"
          >
       </app-destino-viaje>
